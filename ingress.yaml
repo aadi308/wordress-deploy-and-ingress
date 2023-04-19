@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource-wp2
+  namespace: vcluster-my-vcluster
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: mywordpress.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wordpress-x-default-x-my-vcluster
+            port: 
+              number: 80
